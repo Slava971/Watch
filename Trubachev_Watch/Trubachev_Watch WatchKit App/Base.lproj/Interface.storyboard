@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch44"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc">
+                    <items>
+                        <label alignment="center" verticalAlignment="center" text="CookBook" id="UUp-Qn-qIz">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                        <imageView width="136" height="145" alignment="center" image="logo" id="I7f-Vh-lIe"/>
+                    </items>
+                    <connections>
+                        <segue destination="Qjv-IF-21N" kind="relationship" relationship="nextPage" id="lIo-sf-J4a"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="219.52173913043478" y="340"/>
+        </scene>
+        <!--Table RecipesIC-->
+        <scene sceneID="MaW-GW-FeD">
+            <objects>
+                <controller id="Qjv-IF-21N" customClass="TableRecipesIC" customModule="Trubachev_Watch_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="ySb-Bq-8DW">
+                            <items>
+                                <tableRow identifier="tableRow" id="B72-XW-FmD" customClass="RowTable">
+                                    <group key="rootItem" width="1" alignment="left" id="tdP-4a-bec">
+                                        <items>
+                                            <label alignment="center" verticalAlignment="center" text="RecName" id="W78-3b-Fxp"/>
+                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="swift" id="Zmh-Je-lEK">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                        </items>
+                                        <connections>
+                                            <segue destination="DBd-b5-lrg" kind="push" id="SXg-Qu-rzW"/>
+                                        </connections>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowPicture" destination="Zmh-Je-lEK" id="x5q-GE-Fkf"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="ySb-Bq-8DW" id="hgZ-kV-2WC"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="466" y="340"/>
+        </scene>
+        <!--Detail RecipeIC-->
+        <scene sceneID="BeS-1p-Lf0">
+            <objects>
+                <controller id="DBd-b5-lrg" customClass="DetailRecipeIC" customModule="Trubachev_Watch_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="center" id="9kS-nA-kwt">
+                            <items>
+                                <label width="24" height="24" alignment="center" text="IC" id="Sc1-Qo-oeb"/>
+                                <label width="41" alignment="center" text="name" id="TXR-xU-8Um"/>
+                            </items>
+                        </group>
+                        <imageView alignment="center" id="Ztx-M9-pqs"/>
+                        <group width="1" alignment="center" layout="vertical" id="snE-gC-UUg">
+                            <items>
+                                <label alignment="left" text="Автор:" id="C5B-wF-h5M"/>
+                                <label alignment="left" text="authorName" id="2u6-v1-Bbf"/>
+                                <group width="1" alignment="center" layout="vertical" id="QaM-MO-pot">
+                                    <items>
+                                        <label alignment="left" text="Описание:" id="W2g-nG-Led"/>
+                                        <button alignment="left" id="cek-B2-2ZA">
+                                            <group key="contentGroup" width="1" alignment="left" id="Ql8-07-2Qn">
+                                                <items>
+                                                    <label alignment="left" text="recipeText" id="h9D-ed-qDB"/>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <segue destination="t3i-8m-g4M" kind="modal" id="jkS-Xv-aMB"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <slider width="1" alignment="left" value="1" maximum="3" steps="3" minimumImage="star" catalog="system" maximumImage="star.fill" id="sm1-Q6-Por">
+                            <color key="color" red="0.86078917980000003" green="0.79828919359999995" blue="0.4375538806" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="changeRating:" destination="DBd-b5-lrg" id="vSl-6a-n0m"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="authorRecipe" destination="2u6-v1-Bbf" id="nUv-t2-8Rg"/>
+                        <outlet property="imageRecipe" destination="Ztx-M9-pqs" id="cKQ-9G-nN7"/>
+                        <outlet property="nameRicipe" destination="TXR-xU-8Um" id="K1g-Yc-o93"/>
+                        <outlet property="textRecipe" destination="h9D-ed-qDB" id="n0w-Vf-ID8"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="745.78260869565213" y="340"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="1D3-DW-8KS">
+            <objects>
+                <controller id="t3i-8m-g4M">
+                    <items>
+                        <label width="1" alignment="left" text="recipeText" textAlignment="justified" numberOfLines="0" id="DRZ-KO-TtC"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="983" y="339"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="452" height="452"/>
+        <image name="star" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="115"/>
+        <image name="swift" width="512" height="512"/>
+    </resources>
+</document>
